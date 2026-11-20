@@ -1,16 +1,22 @@
+using System;
 using UnityEngine;
 
-public class NewMonoBehaviourScript1 : MonoBehaviour
+public class Finishsound : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
     void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+    
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        audioSource.PlayOneShot(audioClip);
     }
 }
